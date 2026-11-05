@@ -1,4 +1,4 @@
-import Game.Levels.DemoWorld.L01_HelloWorld
+import Game.Metadata
 
 World "DemoWorld"
 Title "Вводный мир: Делимость"
