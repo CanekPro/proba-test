@@ -1,28 +1,24 @@
 import Game.Metadata
 
-World "DemoWorld"
-Level 1
+Title "Урок 1: Рефлексивность делимости"
 
-Title "Hello World"
+Introduction
+"Добро пожаловать на первый урок курса! Здесь мы разберем базовые инструменты Lean 4 и докажем фундаментальное свойство чисел.
 
-Introduction "This text is shown as first message when the level is played.
-You can insert hints in the proof below. They will appear in this side panel
-depending on the proof a user provides."
+Наш урок посвящен **делимости чисел**. Утверждение «число `a` делится на число `b`» записывается как `b ∣ a`. 
+По математическому определению это означает, что **существует** такое целое число `c`, при котором выполняется равенство: `a = b * c`.
 
-Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
-  Hint "You can either start using `{h}` or `{g}`."
-  Branch
-    rw [g]
-    Hint "You should use `{h}` now."
-    rw [h]
-  rw [h]
-  Hint "You should use `{g}` now."
-  rw [g]
+Твоя цель на сегодня — доказать, что любое натуральное число делится на самого себя: `⊢ a ∣ a`.
 
-Conclusion "This last message appears if the level is solved."
+**Доступные тактики для этого уровня:**
+1. `use ...` — позволяет подставить конкретное число вместо квантора существования.
+2. `ring` — мощная автоматическая тактика. Она самостоятельно проверяет и закрывает любые очевидные алгебраические равенства.
 
-/- Use these commands to add items to the game's inventory. -/
+**Задание:** Раскрой определение делимости, выбрав правильный множитель, а затем примени тактику работы с кольцами чисел."
 
-NewTactic rw rfl
--- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+/-- Докажите, что любое натуральное число делится на самого себя. -/
+statement Statement1 (a : ℕ) : a ∣ a := by
+  use 1
+  ring
+
+Conclusion "Отлично! Твое первое математическое доказательство успешно завершено. Компьютер проверил логику шагов, убедился в правильности применения тактик use и ring и подтвердил верность теоремы!"
