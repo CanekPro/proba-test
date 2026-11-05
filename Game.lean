@@ -25,5 +25,5 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- CoverImage "images/cover.png"
 
 /-! Build the game. Show's warnings if it found a problem with your game. -/
-lean
+
 MakeGame
